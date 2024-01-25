@@ -37,7 +37,7 @@
 						<muleVersion>4.4.0</muleVersion>
 						<username>gopi116</username>
 						<password>Viratian@1234</password>
-						<applicationName>test-app1</applicationName>
+						<applicationName>mvn-test1</applicationName>
 						<environment>Sandbox</environment>
 						<region>us-east-2</region>
 						<workers>1</workers>
