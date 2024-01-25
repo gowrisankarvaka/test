@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="test-test-suite.xml" />
+	<munit:test name="test-test-suite-testFlowTest" doc:id="ab8ce7ff-0feb-4e3e-a469-c46f5f1d4a13" description="Test" ignore="true">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="d2be3d72-501c-40ea-8e7f-32015be8a2a2" processor="http:request">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="365c87f7-28c1-4d81-b368-4265539307a8" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[{&#10;    "abbreviation": "+04",&#10;    "client_ip": "122.181.199.175",&#10;    "datetime": "2024-01-25T14:12:43.493138+04:00",&#10;    "day_of_week": 4,&#10;    "day_of_year": 25,&#10;    "dst": false,&#10;    "dst_from": null,&#10;    "dst_offset": 0,&#10;    "dst_until": null,&#10;    "raw_offset": 14400,&#10;    "timezone": "Asia/Dubai",&#10;    "unixtime": 1706177563,&#10;    "utc_datetime": "2024-01-25T10:12:43.493138+00:00",&#10;    "utc_offset": "+04:00",&#10;    "week_number": 4&#10;}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to testFlow" doc:id="7813c8cc-9ed1-4a48-a3e8-d93858cb2f68" name="testFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert doc:name="Assert expression" doc:id="d65c486a-319c-4001-904d-3747168db39b" />
+		</munit:validation>
+	</munit:test>
+	<munit:test name="test-test-suite-testFlowTest-error" doc:id="aac76ebf-73aa-43d2-ac59-200db6bfc701" description="Test" expectedErrorType="HTTP:CONNECTIVITY">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="d1cd805d-7be1-4585-b5cc-cbd6e8bb18f7" processor="http:request">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="365c87f7-28c1-4d81-b368-4265539307a8" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+			
+</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to testFlow" doc:id="0ecf8357-f3d5-498d-a5b7-70631f69e527" name="testFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert doc:name="Assert expression" doc:id="cd8d3fbd-8a14-43cd-81e5-0908e9ebca55" />
+		</munit:validation>
+	</munit:test>
+	<munit:test name="test-test-suite-testFlow1Test" doc:id="14cdca5f-5ba3-42ab-ba9e-7185741fda34" description="Test" ignore="true">
+		<munit:behavior >
+			<set-payload value='#[[&#10;    {&#10;        "Id": "3",&#10;        "Name": "gowri"&#10;    }&#10;]]' doc:name="Set Payload" doc:id="070018ef-a77c-47c9-8b2a-00baffdd22da" />
+			<munit-tools:mock-when doc:name="Mock when" doc:id="b019c462-15a5-46ab-b021-d4dafaf807ea" processor="salesforce:create">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="f027e25a-774c-415c-9564-2ecb3c4b50af" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to testFlow1" doc:id="15fbde77-97f8-4ebe-a82a-c88da7cc1360" name="testFlow1"/>
+		</munit:execution>
+	</munit:test>
+
+
+</mule>
