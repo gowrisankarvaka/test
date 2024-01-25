@@ -32,6 +32,10 @@
 				<munit-tools:with-attributes >
 					<munit-tools:with-attribute whereValue="365c87f7-28c1-4d81-b368-4265539307a8" attributeName="doc:id" />
 				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[{"error": "HTTP:CONNECTIVITY"}]' />
+					<munit-tools:error typeId="HTTP:CONNECTIVITY" />
+				</munit-tools:then-return>
 			
 </munit-tools:mock-when>
 		</munit:behavior>
@@ -39,12 +43,18 @@
 			<flow-ref doc:name="Flow-ref to testFlow" doc:id="0ecf8357-f3d5-498d-a5b7-70631f69e527" name="testFlow"/>
 		</munit:execution>
 		<munit:validation>
-			<munit-tools:assert doc:name="Assert expression" doc:id="cd8d3fbd-8a14-43cd-81e5-0908e9ebca55" />
+			<munit-tools:verify-call doc:name="Verify call" doc:id="1faf51f5-4219-48c4-bba0-43b9a232e9b6" processor="http:request" times="#[1]">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="365c87f7-28c1-4d81-b368-4265539307a8" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+			</munit-tools:verify-call>
+
 		</munit:validation>
-	</munit:test>
-	<munit:test name="test-test-suite-testFlow1Test" doc:id="14cdca5f-5ba3-42ab-ba9e-7185741fda34" description="Test" ignore="true">
+	
+</munit:test>
+<!-- [STUDIO:"test-test-suite-testFlow1Test"]	<munit:test name="test-test-suite-testFlow1Test" doc:id="14cdca5f-5ba3-42ab-ba9e-7185741fda34" description="Test" ignore="true">
 		<munit:behavior >
-			<set-payload value='#[[&#10;    {&#10;        "Id": "3",&#10;        "Name": "gowri"&#10;    }&#10;]]' doc:name="Set Payload" doc:id="070018ef-a77c-47c9-8b2a-00baffdd22da" />
+			<set-payload value='#[[&#10;    {&#10;        "Id": "3",&#10;        "Name": "gowri"&#10;    }&#10;&#93;&#93;' doc:name="Set Payload" doc:id="070018ef-a77c-47c9-8b2a-00baffdd22da" />
 			<munit-tools:mock-when doc:name="Mock when" doc:id="b019c462-15a5-46ab-b021-d4dafaf807ea" processor="salesforce:create">
 				<munit-tools:with-attributes >
 					<munit-tools:with-attribute whereValue="f027e25a-774c-415c-9564-2ecb3c4b50af" attributeName="doc:id" />
@@ -54,7 +64,7 @@
 		<munit:execution >
 			<flow-ref doc:name="Flow-ref to testFlow1" doc:id="15fbde77-97f8-4ebe-a82a-c88da7cc1360" name="testFlow1"/>
 		</munit:execution>
-	</munit:test>
+	</munit:test> [STUDIO] -->
 
 
 </mule>
