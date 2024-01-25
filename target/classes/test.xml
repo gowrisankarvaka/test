@@ -24,7 +24,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 	<flow name="testFlow" doc:id="63b5e2c8-358c-455c-9884-360776e8b560" >
 		<http:listener doc:name="Listener" doc:id="727c6420-6ca8-46e3-b8c8-cd90ac619882" config-ref="HTTP_Listener_config" path="/test"/>
 <!-- [STUDIO:"Set Variable"]		<set-variable value='#["eyJraWQiOiIyMDIzLTEwLTIxVDAwOjA4OjI3LjIzNS5lYy5lczI1NiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5jZXJuZXIuY29tXC8iLCJleHAiOjE2OTc5MDAyMDYsImlhdCI6MTY5Nzg5OTYwNiwianRpIjoiNjMyNWQyOWUtYTAyMi00Y2M0LTkwNGUtNzAxNzYxY2ExNGFkIiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoic3lzdGVtXC9PYnNlcnZhdGlvbi5yZWFkIHN5c3RlbVwvUGF0aWVudC5yZWFkIn19LCJjbGllbnQiOnsibmFtZSI6Im5ld3VzZXIiLCJpZCI6IjQ5ZDkzYTFjLTExODEtNDgzOC1hNmU1LWUxY2I0YjI0MjMyZCJ9LCJ0ZW5hbnQiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QifX0.aC5CQt-gpPIhS_5rLbUpPN0KqMh-o4REo96Vy1B75WWilk3E_5pmVRlfbRXszKL0J0XOqfIgcHZ-o5HDGOcK9w"&#93;' doc:name="Set Variable" doc:id="69d00a8c-c841-4e7b-8024-4c544967eb0a" variableName="token"/> [STUDIO] -->
-		<http:request method="GET" doc:name="Request" doc:id="365c87f7-28c1-4d81-b368-4265539307a8" config-ref="HTTP_Request_configuration" path="/Asia/Kolkata">
+		<http:request method="GET" doc:name="Request" doc:id="365c87f7-28c1-4d81-b368-4265539307a8" config-ref="HTTP_Request_configuration" path="/Asia/Dubai">
 		</http:request>
 <!-- [STUDIO:"Transform Message"]		<ee:transform doc:name="Transform Message" doc:id="9192855f-5d0c-42b9-be97-3ffa171b29ed" >
 			<ee:message >
